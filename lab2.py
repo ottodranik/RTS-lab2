@@ -63,24 +63,24 @@ def main_fn():
   signal1 = np.array([generate_signal(i) for i in range(N)])
   M1 = expected_value(signal1)
   D1 = dispersion(M1, signal1)
-  # print('Mat №1: ', M1)
-  # print('D №1: ', D1)
+  print('Mat №1: ', M1)
+  print('D №1: ', D1)
 
   signal2 = np.array([generate_signal(i) for i in range(N)])
   M2 = expected_value(signal2)
   D2 = dispersion(M2, signal2)
-  # print('Mat №2: ', M2)
-  # print('D №2: ', D2)
+  print('Mat №2: ', M2)
+  print('D №2: ', D2)
 
-  for _ in range(0, 2000):
+  for _ in range(0, 200):
     Rxx = autocorelation(signal1, M1)
     Rxy = bothcorelation(signal1, M1, signal2, M2)
   
   print("Rxx: --- %s seconds ---" % sum(Rxx_timer))
   print("Rxy: --- %s seconds ---" % sum(Rxy_timer))
 
-  print("Rxx average: --- %s seconds ---" % (sum(Rxx_timer) / 2000))
-  print("Rxy average: --- %s seconds ---" % (sum(Rxy_timer) / 2000))
+  print("Rxx average: --- %s seconds ---" % (sum(Rxx_timer) / 200))
+  print("Rxy average: --- %s seconds ---" % (sum(Rxy_timer) / 200))
 
   options = [
     DrawOption("Signal 1", "plot"),
